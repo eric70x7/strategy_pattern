@@ -13,14 +13,14 @@ test_strategy::~test_strategy() {
 
 TEST(StrategyTestSuite, TestBehavior) {
     context contextA;
-    concreteStrategyA a;
+    std::shared_ptr<strategy> a(new concreteStrategyA);
 
-    contextA.setStrategy(&a);
+    contextA.setStrategy(a);
 
     context contextB;
-    concreteStrategyB b;
+    std::shared_ptr<strategy> b(new concreteStrategyB);
 
-    contextB.setStrategy(&b);
+    contextB.setStrategy(b);
 
     ASSERT_EQ("A", contextA.executeAlgorithm());
     ASSERT_EQ("B", contextB.executeAlgorithm());

@@ -3,8 +3,10 @@
 #ifndef CONTEXT_H_
 #define CONTEXT_H_
 
-#include "./strategy.h"
 #include <string>
+#include <memory>
+
+#include "./strategy.h"
 
 #pragma once
 
@@ -13,12 +15,12 @@ class context {
     context();
     ~context();
 
-    void setStrategy(strategy* strategy);
+    void setStrategy(std::shared_ptr<strategy> strategy);
 
     std::string executeAlgorithm();
 
  private:
-    strategy * myStrategy;
+    std::shared_ptr<strategy> myStrategy;
 };
 
 #endif  // CONTEXT_H_

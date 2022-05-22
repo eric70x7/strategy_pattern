@@ -8,7 +8,7 @@ context::context() {
 context::~context() {
 }
 
-void context::setStrategy(strategy* strategy) {
+void context::setStrategy(std::shared_ptr<strategy> strategy) {
     myStrategy = strategy;
 }
 
